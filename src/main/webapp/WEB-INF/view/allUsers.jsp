@@ -24,7 +24,7 @@
                     <option value="false">false</option>
                 </select>
                 <%--<input type="submit">--%>
-                <button id="setEnabled-${user.id}">change</button>
+                <button id="setEnable" atribute="${user.id}">change</button>
 
             <%--</form>--%>
 

@@ -1,5 +1,6 @@
 package ua.com.owu.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Proxy;
 import org.springframework.context.annotation.Lazy;
 
@@ -14,15 +15,15 @@ public class Busket {
     private int id;
 
     @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "busket")
+    @JsonIgnore
     private User user;
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JoinTable(name = "product_busket",
-            joinColumns = @JoinColumn(name = "busket_buskteId"),
-            inverseJoinColumns = @JoinColumn(name = "product_id"))
-    private List<Product>products;
 
-//    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "busket")
-//    private List<Item>items;
+
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinTable(name = "busket_item",
+            joinColumns = @JoinColumn(name = "Busket_id"),
+            inverseJoinColumns = @JoinColumn(name = "items_itemId"))
+    private List<Item>items;
 
 
     public Busket() {
@@ -32,13 +33,12 @@ public class Busket {
         this.id = id;
     }
 
-
-    public List<Product> getProducts() {
-        return products;
+    public List<Item> getItems() {
+        return items;
     }
 
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public void setItems(List<Item> items) {
+        this.items = items;
     }
 
     public int getId() {
@@ -53,13 +53,7 @@ public class Busket {
         this.user = user;
     }
 
-//    public List<Item> getItems() {
-//        return items;
-//    }
-//
-//    public void setItems(List<Item> items) {
-//        this.items = items;
-//    }
+
 
     @Override
     public String toString() {

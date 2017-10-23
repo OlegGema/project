@@ -1,5 +1,6 @@
 package ua.com.owu.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
@@ -16,21 +17,26 @@ public class Product {
     private String productPhoto;
     private int productPrice;
     private String productDescription;
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JoinTable(name = "product_busket",
-            inverseJoinColumns = @JoinColumn(name = "busket_buskteId"),
-            joinColumns = @JoinColumn(name = "product_id"))
-    private List<Busket> buskets;
+//    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+//    @JoinTable(name = "product_busket",
+//            inverseJoinColumns = @JoinColumn(name = "busket_buskteId"),
+//            joinColumns = @JoinColumn(name = "product_id"))
+//    @JsonIgnore
+//    private List<Busket> buskets;
 //    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 //    private List<Item>items;
 
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER ,mappedBy = "product")
+    private List<Item>items;
 
-    public List<Busket> getBuskets() {
-        return buskets;
+
+
+    public List<Item> getItems() {
+        return items;
     }
 
-    public void setBuskets(List<Busket> buskets) {
-        this.buskets = buskets;
+    public void setItems(List<Item> items) {
+        this.items = items;
     }
 
     public Product() {

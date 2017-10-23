@@ -17,19 +17,23 @@ public class RESTController {
     ProductService productService;
 
 
-    @GetMapping("/show")
-    public List<Product> show(){
-        return productService.findAll();
-    }
 
-    @GetMapping("/admin/banUser-{id}")
-    public void banUser(@PathVariable("id")int id, @RequestAttribute("enable")boolean enabled){
+//    @GetMapping("/show")
+//    public List<Product> show(){
+//        return productService.findAll();
+//    }
+
+    @RequestMapping(value = "/admin/listOfUsers/banUser" ,method = RequestMethod.GET)
+    public void banUser( @RequestBody boolean enabled,@RequestBody int id){
+//        System.out.println(user.isEnabled());
+//        System.out.println(user.getId());
+//        userService.setNewEnable(user.isEnabled(),user.getId());
         userService.setNewEnable(enabled,id);
 
     }
 
-    @GetMapping("/userPage/delProduct-${product.id}")
-    public void delProd(@PathVariable("id")int id){
-        productService.deleteProd(id);
-    }
+//    @GetMapping("/userPage/delProduct-${product.id}")
+//    public void delProd(@PathVariable("id")int id){
+//        productService.deleteProd(id);
+//    }
 }
