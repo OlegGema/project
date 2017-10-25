@@ -13,13 +13,17 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
-
-<c:forEach items="${busket}" var="product">
+${busket}
+${item}
+<c:forEach items="${busket}" var="item">
     <div style="border: solid royalblue 2px";>
-        <p>${product.productName}</p>
-        <p>тип- ${product.productType}</p>
-        <p>ціна- ${product.productPrice}</p>
-        <img style="width: 100px;height: 150px" src="${product.productPhoto} " alt="">
+        <p>${item.product.productName}</p>
+        <p>тип- ${item.product.productType}</p>
+        <p>ціна- ${item.product.productPrice*item.quantity}</p>
+        <p>кількість- ${item.quantity}</p>
+        <img style="width: 100px;height: 150px" src="${item.product.productPhoto} " alt="">
+        <br>
+        <a href="/userPage/delete-${item.itemId}">delete</a>
     </div>
     <br>
 </c:forEach>

@@ -28,8 +28,7 @@ public class User implements UserDetails {
     @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private Busket busket;
-//    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-//    private List<Product> products;
+
 
     @Enumerated(EnumType.STRING)
     private Authority authority=Authority.ROLE_USER;
@@ -122,13 +121,6 @@ public class User implements UserDetails {
         this.avatar = avatar;
     }
 
-//    public List<Product> getProducts() {
-//        return products;
-//    }
-//
-//    public void setProducts(List<Product> products) {
-//        this.products = products;
-//    }
 
     public Authority getAuthority() {
         return authority;

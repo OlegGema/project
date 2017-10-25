@@ -11,13 +11,13 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int itemId;
     private int quantity;
-    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
     @JoinTable(name = "busket_item",
             inverseJoinColumns = @JoinColumn(name = "Busket_id"),
             joinColumns = @JoinColumn(name = "items_itemId"))
     private Busket busket;
 
-    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
     private Product product;
 
     public Item() {

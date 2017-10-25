@@ -14,37 +14,6 @@
 <body>
 Creating product
 
-<%--@elvariable id="newProduct" type="java"--%>
-<%--<sf:form action="createNewProduct" modelAttribute="newProduct" method="post" enctype="multipart/form-data">--%>
-    <%--<p>enter product name--%>
-        <%--<sf:input path="productName"/>--%>
-        <%--<sf:errors path="productName"/>--%>
-    <%--</p>--%>
-
-    <%--<p>enter product type--%>
-        <%--<sf:input path="productType"/>--%>
-        <%--<sf:errors path="productType"/>--%>
-    <%--</p>--%>
-
-    <%--<p>enter product photo--%>
-        <%--<input type="file" name="productPhoto">--%>
-    <%--</p>--%>
-
-    <%--<p>enter product price--%>
-        <%--<sf:input path="productPrice"/>--%>
-        <%--<sf:errors path="productPrice"/>--%>
-    <%--</p>--%>
-
-    <%--<p>enter product description--%>
-        <%--<sf:input path="productDescription"/>--%>
-        <%--<sf:errors path="productDescription"/>--%>
-    <%--</p>--%>
-    <%--<input type="submit">--%>
-
-    <%--<input type="hidden"--%>
-           <%--name="${_csrf.parameterName}"--%>
-           <%--value="${_csrf.token}"/>--%>
-<%--</sf:form>--%>
 
 <%--@elvariable id="newProdcut" type="java"--%>
 <form action="/admin/createNewProduct" method="post" enctype="multipart/form-data">

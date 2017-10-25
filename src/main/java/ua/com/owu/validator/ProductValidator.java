@@ -52,7 +52,7 @@ public class ProductValidator implements Validator {
             }
         }
 
-//        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"productPhoto","productPhoto.empty","enter product photo");
+
 
 
     }

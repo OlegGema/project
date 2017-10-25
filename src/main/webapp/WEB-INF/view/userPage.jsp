@@ -25,7 +25,9 @@
 
 <a href="/userPage/products">list of products</a>
 <br>
-<a href="/userPage/userBusket-${user.id}">Busket</a>
+<security:authorize  access="hasRole('ROLE_USER')">
+    <a href="/userPage/userBusket-${user.id}">Busket</a>
+</security:authorize>
 
 
 

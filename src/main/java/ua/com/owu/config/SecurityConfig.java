@@ -47,13 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         return provider;
     }
 
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.inMemoryAuthentication().withUser("user1").password("123").roles("USER");
-//        auth.inMemoryAuthentication().withUser("admin1").password("1111").roles("USER,ADMINISTRATOR");
-//        auth.userDetailsService(userDetailsService);
-//        auth.authenticationProvider(authenticationProvider());
-//    }
+
 
     private InMemoryUserDetailsManagerConfigurer<AuthenticationManagerBuilder> inMemoryConfigure() {
         return new InMemoryUserDetailsManagerConfigurer();
@@ -62,7 +56,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Autowired
     private void globalConfigure(AuthenticationManagerBuilder managerBuilder, AuthenticationProvider provider) throws Exception {
         inMemoryConfigure().withUser("aa").password("123").roles("ADMINISTRATOR").and().configure(managerBuilder);
-//        inMemoryConfigure().withUser("user").password("123").roles("USER").and().configure(managerBuilder);
         managerBuilder.authenticationProvider(provider);
     }
 
@@ -76,7 +69,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/userPage")
-//                .defaultSuccessUrl("/admin")
                 .usernameParameter("username")
                 .passwordParameter("password")
                 .and()

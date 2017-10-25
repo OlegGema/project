@@ -1,6 +1,6 @@
 package ua.com.owu.controller;
 
-import org.hibernate.annotations.Target;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,7 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import ua.com.owu.entity.Authority;
+
 import ua.com.owu.entity.Busket;
 import ua.com.owu.entity.User;
 import ua.com.owu.service.UserService;
@@ -41,9 +41,7 @@ public class UserController {
     public String toUserPage(Principal principal, Model model){
         User user = userService.findByName(principal.getName());
         model.addAttribute("user",user);
-//        if (user.getAuthority().equals(Authority.ROLE_ADMINISTRATOR)){
-//            return "redirect:admin";
-//        }
+
         return "userPage";
     }
 
@@ -91,13 +89,16 @@ public class UserController {
         return "redirect:userPage";
     }
 
+    @RequestMapping(value = "/admin/listOfUsers/banUser-{id}" ,method = RequestMethod.POST)
+    public String banUser( @RequestParam("enabled") boolean enabled,@PathVariable("id") int id){
+        userService.setNewEnable(enabled,id);
+        return "redirect:/admin/listOfUsers";
+    }
+
 
     @InitBinder("newUser")
     public void bind(WebDataBinder webDataBinder){
-//        try {
             webDataBinder.addValidators(userValidator);
-//        }catch (IllegalStateException e){
-//            System.out.println("error");
-//        }
+
     }
 }

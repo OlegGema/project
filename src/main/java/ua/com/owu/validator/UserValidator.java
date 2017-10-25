@@ -59,17 +59,6 @@ public class UserValidator implements Validator{
                 errors.rejectValue("password","password.incorrect","invalid password");
             }
         }
-//        if (!(user.getPassword()!=null&&user.getPassword().isEmpty())){
-//            errors.rejectValue("password","error","empty password");
-//        }
-//        if (user.getUsername().isEmpty()){
-//            errors.rejectValue("username","error","empty name");
-//        }if (userService.findByName(user.getUsername())!=null){
-//            errors.rejectValue("username","error","name already exist");
-//        }
-//        if (user.getEmail().equals("")){
-//            errors.rejectValue("email","error","empty email");
-//        }
+
     }
 }
-//&&(user.getPassword().equals("")) && (user.getEmail().equals(""))

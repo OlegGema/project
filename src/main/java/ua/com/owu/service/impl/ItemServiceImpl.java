@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.com.owu.dao.ItemDAO;
 import ua.com.owu.entity.Item;
+import ua.com.owu.entity.Product;
 import ua.com.owu.service.ItemService;
 
 import java.util.List;
@@ -28,4 +29,11 @@ public class ItemServiceImpl implements ItemService{
     public List<Item> findAll() {
         return dao.findAll();
     }
+
+    @Override
+    public void delete(int id) {
+        dao.delete(id);
+    }
+
+
 }

@@ -22,8 +22,8 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 //        JavaMailSenderImpl javaMailSender=new JavaMailSenderImpl();
 //        javaMailSender.setHost("smtp.gmail.com");
 //        javaMailSender.setPort(587);
-//        javaMailSender.setUsername("Oleggema@gmail.com");
-//        javaMailSender.setPassword("526098og");
+//        javaMailSender.setUsername("");
+//        javaMailSender.setPassword("");
 //        Properties properties=javaMailSender.getJavaMailProperties();
 //        properties.put("mail.transport.protocol","smtp");
 //        properties.put("mail.smtp.auth","true");

@@ -17,16 +17,18 @@
         <div style="border: solid burlywood 2px">(${user.id}) ${user.username}
             <img style="width: 100px;height: 120px " src="${user.avatar}"  alt="user dint have avatar">
             <p>${user.email}</p>
-            <%--<form action="banUser-${user.id} ">--%>
+            <form action="/admin/listOfUsers/banUser-${user.id}"method="post">
                 <p>статус користувача-  ${user.enabled}</p>
                 змінити сататус - <select name="enabled">
                     <option value="true">true</option>
                     <option value="false">false</option>
                 </select>
-                <%--<input type="submit">--%>
-                <button id="setEnable" atribute="${user.id}">change</button>
-
-            <%--</form>--%>
+                <input type="submit">
+                <%--<button id="setEnable" atribute="${user.id}">change</button>--%>
+                <input type="hidden"
+                       name="${_csrf.parameterName}"
+                       value="${_csrf.token}"/>
+            </form>
 
 
         </div>

@@ -22,16 +22,7 @@
                value="${_csrf.token}"/>
     </form>
 
-    <%--@elvariable id="user" type="java"--%>
-    <%--<sf:form action="changeUserName-${user.id}" modelAttribute="user" method="post">--%>
-    <%--<p>enter your new name--%>
-            <%--<sf:input path="username"/>--%>
-            <%--<sf:errors path="username"/>--%>
-        <%--<input type="submit">--%>
-        <%--<input type="hidden"--%>
-               <%--name="${_csrf.parameterName}"--%>
-               <%--value="${_csrf.token}"/>--%>
-    <%--</sf:form>--%>
+
 
 
     <form action="changeEmail-${user.id}" method="post" >

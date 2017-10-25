@@ -1,6 +1,6 @@
 package ua.com.owu.service;
 
-import org.springframework.web.multipart.MultipartFile;
+
 import ua.com.owu.entity.User;
 
 import java.util.List;

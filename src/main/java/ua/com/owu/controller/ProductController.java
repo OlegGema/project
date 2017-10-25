@@ -3,21 +3,20 @@ package ua.com.owu.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.WebDataBinder;
+
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import ua.com.owu.entity.Product;
-import ua.com.owu.entity.User;
+
 import ua.com.owu.service.ProductService;
 import ua.com.owu.service.UserService;
 import ua.com.owu.validator.ProductValidator;
 
-import javax.validation.Valid;
+
 import java.io.File;
 import java.io.IOException;
 import java.security.Principal;
-import java.util.List;
+
 
 @Controller
 public class ProductController {
@@ -30,7 +29,7 @@ public class ProductController {
 
     @GetMapping("/admin/addProduct")
     public String toProductPage(Model model){
-//        model.addAttribute("newProduct",new Product());
+
         return "addProductPage";
     }
 
@@ -58,21 +57,21 @@ public class ProductController {
 
 
 
-//    @RequestMapping(value = "createNewProduct",method = RequestMethod.POST)
-//    public String newProduct(@ModelAttribute("newProduct")@Valid Product product, BindingResult result,
-//                             @RequestParam("productPhoto")MultipartFile file) throws IOException {
-//
-//        if (result.hasErrors()){
-//            return "addProductPage";
-//        }
-//
-//        String path=System.getProperty("user.home")+ File.separator+"productImages\\";
-//        file.transferTo(new File(path+file.getOriginalFilename()));
-//        String photo="\\productPhoto\\"+file.getOriginalFilename();
-//        product.setProductPhoto(photo);
-//        productService.save(product);
-//        return "addProductPage";
-//    }
+    @GetMapping("/admin/products/delete-{id}")
+    public String delProd(@PathVariable("id")int id){
+        productService.deleteProd(id);
+        return "redirect:/userPage/products";
+    }
+
+    @GetMapping("/admin/products/product-{id}")
+    public String productPage(@PathVariable("id")int id,Model model,Principal principal){
+
+
+        model.addAttribute("user",userService.findByName(principal.getName()));
+        model.addAttribute("product",productService.findOne(id));
+        return "productPage";
+    }
+
 
     @GetMapping("/userPage/products")
     public String listOfProducts(Model model, Principal principal){
@@ -88,14 +87,41 @@ public class ProductController {
 
     }
 
-//    @InitBinder
-//    public void bind(WebDataBinder webDataBinder){
-//        try {
-//            webDataBinder.addValidators(productValidator);
-//        }catch (IllegalStateException e){
-//            System.out.println("error");
-//        }
-//    }
+    @RequestMapping( value = "/admin/changeProdName-{id}",method = RequestMethod.POST)
+    public String changeProdName(@PathVariable("id")int id,@RequestParam("productName")String name){
+        Product product=productService.findOne(id);
+        product.setProductName(name);
+        productService.save(product);
+        return "redirect:/admin/products/product-{id}";
+    }
+/////переписпти мепынги
+    @RequestMapping(value = "/admin/changeProdType-{id}" ,method = RequestMethod.POST)
+    public String changeProdType(@PathVariable("id")int id,@RequestParam("productType")String type){
+        Product product=productService.findOne(id);
+        product.setProductType(type);
+        productService.save(product);
+        return "redirect:/admin/products/product-{id}";
+    }
+
+    @RequestMapping(value = "/admin/changeProdPrice-{id}",method = RequestMethod.POST)
+    public String changeProdPrice(@PathVariable("id")int id,@RequestParam("productPrice")int price){
+        Product product=productService.findOne(id);
+        product.setProductPrice(price);
+        productService.save(product);
+        return "redirect:/admin/products/product-{id}";
+    }
+
+    @RequestMapping(value = "/admin/changeProdPhoto-{id}",method = RequestMethod.POST)
+    public String changeProdPhoto(@PathVariable("id")int id,@RequestParam("productPhoto") MultipartFile multipartFile) throws IOException {
+        Product product=productService.findOne(id);
+        String path=System.getProperty("user.home")+File.separator+"productImages\\";
+        multipartFile.transferTo(new File(path+multipartFile.getOriginalFilename()));
+        String photo="\\productPhoto\\"+multipartFile.getOriginalFilename();
+        product.setProductPhoto(photo);
+        productService.save(product);
+        return "redirect:/admin/products/product-{id}";
+    }
+
 
 
 }

@@ -10,16 +10,12 @@
 
 <div style="border: solid red 1px; background: yellow">
 <p>HEADER</p>
-    Hello <a href="<%--user-${user.id}--%>userChange">${user.username}</a>
+    Hello <a href="userChange">${user.username}</a>
 <a style="float: right" href="/logout">logout</a>
     <img src="${user.avatar}" height="100px" width="100px">
 </div>
 <br>
 
-<%--<c:if test="${user}">--%>
-    <%--<a href="">registration</a>--%>
-    <%--or--%>
-    <%--<a href="/login">login</a>--%>
-<%--</c:if>--%>
+
 
 <br>

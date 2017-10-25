@@ -11,9 +11,7 @@ import java.util.List;
 
 public interface BusketDAO extends JpaRepository<Busket,String> {
 
-//    @Modifying
-//    @Query("inset into Busket product_id=:productId where busket_buskteId=:busketId,")
-//    void addProduct(@Param("busketId")Busket busketId,@Param("productId")Product productId);
+
 
 
     @Query("from Busket product_id where busket_buskteId=:id")

@@ -17,16 +17,10 @@ public class Product {
     private String productPhoto;
     private int productPrice;
     private String productDescription;
-//    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-//    @JoinTable(name = "product_busket",
-//            inverseJoinColumns = @JoinColumn(name = "busket_buskteId"),
-//            joinColumns = @JoinColumn(name = "product_id"))
-//    @JsonIgnore
-//    private List<Busket> buskets;
-//    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-//    private List<Item>items;
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER ,mappedBy = "product")
+
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "product")
+
     private List<Item>items;
 
 
@@ -86,21 +80,7 @@ public class Product {
         this.productDescription = productDescription;
     }
 
-//    public List<Item> getItems() {
-//        return items;
-//    }
-//
-//    public void setItems(List<Item> items) {
-//        this.items = items;
-//    }
 
-    //    public List<User> getUsers() {
-//        return users;
-//    }
-//
-//    public void setUsers(List<User> users) {
-//        this.users = users;
-//    }
 
     @Override
     public String toString() {

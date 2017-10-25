@@ -18,23 +18,33 @@
 <body>
 <jsp:include page="header.jsp"/>
 
-<%--<button id="b1">show</button>--%>
-<%--<div id="showDiv">--%>
-    <%--<img id="photo" src="">--%>
-<%--</div>--%>
+
 
 <c:forEach items="${products}" var="product">
-    <div style="border: 2px red solid;margin: 10px;">
-        <a href="product-${product.id}">${product.productName}</a>
+    <div style="border: 2px red solid;margin: 10px;width: 200px">
+        <security:authorize  access="hasRole('ROLE_ADMINISTRATOR')">
+            <a href="/admin/products/product-${product.id}">${product.productName}</a>
+        </security:authorize>
+        <security:authorize  access="hasRole('ROLE_USER')">
+            <p>${product.productName}</p>
+        </security:authorize>
         <p>тип- ${product.productType}</p>
         <p>ціна- ${product.productPrice}</p>
         <img style="width: 100px;height: 150px" src="${product.productPhoto} " alt="">
+        <br>
 
-        <%--<button type="submit" name="add-${product.id} " >asd</button>--%>
-        <a href="add-${product.id}">add</a>
+        <form action="/userPage/add-${product.id}" method="post">
+            <input type="number" name="quantity"/>
+            <input type="submit">
+            <input type="hidden"
+                   name="${_csrf.parameterName}"
+                   value="${_csrf.token}"/>
+        </form>
+
+
         <security:authorize  access="hasRole('ROLE_ADMINISTRATOR')">
-            <%--<a href="delProduct-${product.id}">delete product</a>--%>
-            <button id="delProduct-${product.id}">delete</button>
+            <br>
+            <a href="/admin/products/delete-${product.id}">del</a>
         </security:authorize>
     </div>
 
