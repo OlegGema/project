@@ -19,7 +19,7 @@ public class Busket {
     private User user;
 
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
     @JoinTable(name = "busket_item",
             joinColumns = @JoinColumn(name = "Busket_id"),
             inverseJoinColumns = @JoinColumn(name = "items_itemId"))
@@ -27,6 +27,11 @@ public class Busket {
 
 
     public Busket() {
+    }
+
+    public Busket(User user, List<Item> items) {
+        this.user = user;
+        this.items = items;
     }
 
     public void setId(int id) {

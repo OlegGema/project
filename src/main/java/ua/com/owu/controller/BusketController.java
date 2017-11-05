@@ -14,6 +14,7 @@ import ua.com.owu.service.ProductService;
 import ua.com.owu.service.UserService;
 
 import java.security.Principal;
+import java.util.List;
 
 
 @Controller
@@ -35,20 +36,19 @@ public class BusketController {
         User user = userService.findByName(principal.getName());
         Busket busket = user.getBusket();
         Product product = productService.findOne(id);
-
-
-
-
+        System.out.println(product);
+        System.out.println(busket);
 
 
         Item newItem=new Item();
         newItem.setProduct(product);
-        newItem.setBusket(busket);
         newItem.setQuantity(quantity);
 
-        itemService.save(newItem);
-        busket.getItems().add(newItem);
-        busketService.add(busket);
+    itemService.save(newItem);
+    busket.getItems().add(newItem);
+    busketService.add(busket);
+
+
 
 
 
@@ -65,8 +65,8 @@ public class BusketController {
         return "userBusket";
     }
 
-    @GetMapping("/userPage/delete-{id}")
-    public String delete(@PathVariable("id")int id){
+    @GetMapping("/userPage/delete-{itemId}")
+    public String delete(@PathVariable("itemId")int id){
         itemService.delete(id);
         System.out.println(id);
         return "redirect:/userPage";

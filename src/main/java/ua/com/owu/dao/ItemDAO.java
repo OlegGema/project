@@ -10,6 +10,7 @@ import ua.com.owu.entity.Product;
 import ua.com.owu.entity.User;
 
 public interface ItemDAO extends JpaRepository<Item,Integer> {
-
-
+    @Modifying
+    @Query("update Item set quantity=:quantity where itemId=:id")
+    void updateQuantity(@Param("quantity")int quantity,@Param("id")int itemId);
 }

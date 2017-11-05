@@ -10,5 +10,6 @@ public interface ItemService {
     Item findOne(int id);
     List<Item>findAll();
     void delete(int id);
+    void updateQuantity(int quantity,int itemId);
 
 }

@@ -19,7 +19,7 @@ public class Product {
     private String productDescription;
 
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "product")
+    @OneToMany(cascade = {CascadeType.MERGE,CascadeType.REMOVE},fetch = FetchType.EAGER,mappedBy = "product")
 
     private List<Item>items;
 

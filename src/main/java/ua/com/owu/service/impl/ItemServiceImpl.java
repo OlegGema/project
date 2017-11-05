@@ -35,5 +35,10 @@ public class ItemServiceImpl implements ItemService{
         dao.delete(id);
     }
 
+    @Override
+    public void updateQuantity(int quantity, int itemId) {
+        dao.updateQuantity(quantity,itemId);
+    }
+
 
 }
