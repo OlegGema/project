@@ -1,5 +1,6 @@
 package ua.com.owu.service;
 
+import ua.com.owu.entity.Busket;
 import ua.com.owu.entity.Item;
 
 
@@ -10,6 +11,6 @@ public interface ItemService {
     Item findOne(int id);
     List<Item>findAll();
     void delete(int id);
-    void updateQuantity(int quantity,int itemId);
+    List<Item>Items(Busket id);
 
 }

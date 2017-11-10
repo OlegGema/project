@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family:Arial;
+}
+
+.wrapper{
+    position: relative;
+    min-height: 100%;
+}
+
+
+.first{
+    width: 250px;
+    margin: 0 auto;
+    padding-top: 40px;
+    padding-bottom: 90px;
+
+}
+.login{
+    text-align: center;
+    width: 250px;
+    margin: 40px auto;
+    border: solid 4px royalblue;
+    line-height: 30px;
+    padding-bottom: 30px;
+    font-size: 18px;
+}
+input{
+    font-size: 18px;
+    border: royalblue 1px solid;
+    text-align: center;
+}
+
+#button{
+    width: 60px;
+    height: 30px;
+    background: royalblue;
+    color: white;
+    border-radius:  5px;
+}

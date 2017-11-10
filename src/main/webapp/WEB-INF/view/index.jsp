@@ -8,20 +8,25 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <link href="/CSS/index.css" rel="stylesheet" >
+    <link href="/CSS/banner.css" rel="stylesheet" >
+    <title>Main page</title>
 </head>
 <body>
+<div class="wrapper">
+    <jsp:include page="banner.jsp"/>
 
+<div class="first">
+    <div id="enter">
+        <a href="registration">Registration</a>
+        <p>or</p>
+        <a href="login">Login</a>
+    </div>
+</div>
 
+    <jsp:include page="footer.jsp"/>
 
-
-<a href="registration">Registration</a>
-<p>or</p>
-<a href="login">Login</a>
-
-
-
-
+</div>
 
 </body>
 </html>

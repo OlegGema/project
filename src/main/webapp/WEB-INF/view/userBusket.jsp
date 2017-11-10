@@ -9,25 +9,32 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link href="/CSS/banner.css" rel="stylesheet" >
+    <link href="/CSS/userPage.css" rel="stylesheet" >
+    <link href="/CSS/products.css" rel="stylesheet" >
     <title>Busket</title>
 </head>
 <body>
 <jsp:include page="header.jsp"/>
-${busket}
-${item}
+
+<%--${item}--%>
 <c:forEach items="${busket}" var="item">
-    <div style="border: solid royalblue 2px";>
+    <div class="product">
         <p>${item.product.productName}</p>
         <p>тип- ${item.product.productType}</p>
         <p>ціна- ${item.product.productPrice*item.quantity}</p>
         <p>кількість- ${item.quantity}</p>
         <img style="width: 100px;height: 150px" src="${item.product.productPhoto} " alt="">
         <br>
+        <div id="delete">
         <a href="/userPage/delete-${item.itemId}">delete</a>
-    </div>
-    <br>
+        </div>
+        </div>
 </c:forEach>
-<br>
-<a href="/userPage">to user page</a>
+
+<div id="toUserPage">
+    <a href="/userPage">to user page</a>
+</div>
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

@@ -8,18 +8,29 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link href="/CSS/userPage.css" rel="stylesheet" >
+    <link href="/CSS/admin.css" rel="stylesheet" >
+    <link href="/CSS/banner.css" rel="stylesheet" >
     <title>Title</title>
 </head>
 <body>
-hello ${user.username} you are administrator
-<br>
-you can add new prodcuts
-<br>
-<a href="/admin/addProduct">add product</a>
-<br>
-<a href="/admin/listOfUsers">list of users</a>
-<br>
-<a href="userPage">to user page</a>
+<jsp:include page="header.jsp"/>
 
+<div class="first">
+    <div class="adm">
+        <a href="/admin/addProduct">Add product</a>
+        <br>
+        <a href="/admin/listOfUsers">List of users</a>
+        <br>
+
+    </div>
+</div>
+
+<div id="toUserPage">
+    <a href="/userPage" >Back</a>
+</div>
+
+
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

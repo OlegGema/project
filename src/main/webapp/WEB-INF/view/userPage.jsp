@@ -10,6 +10,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link href="/CSS/userPage.css" rel="stylesheet" >
+    <link href="/CSS/banner.css" rel="stylesheet" >
     <title>User page</title>
 </head>
 <body>
@@ -17,20 +19,27 @@
 
 <br>
 
-<security:authorize  access="hasRole('ROLE_ADMINISTRATOR')">
-    <a href="admin">admin page</a>
-</security:authorize>
 
-<br>
+    <div class="pages">
+        <security:authorize  access="hasRole('ROLE_ADMINISTRATOR')">
+            <a href="admin">admin page</a>
+        </security:authorize>
 
-<a href="/userPage/products">list of products</a>
-<br>
-<security:authorize  access="hasRole('ROLE_USER')">
-    <a href="/userPage/userBusket-${user.id}">Busket</a>
-</security:authorize>
+         <br>
+
+        <a href="/userPage/products">List of products</a>
+         <br>
+        <security:authorize  access="hasRole('ROLE_USER')">
+             <a href="/userPage/userBusket-${user.id}">Busket</a>
+        </security:authorize>
+
+    </div>
 
 
 
+<jsp:include page="footer.jsp"/>
+
+</div>
 
 
 </form>

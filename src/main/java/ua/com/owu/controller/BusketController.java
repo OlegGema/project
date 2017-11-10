@@ -60,6 +60,10 @@ public class BusketController {
         User user = userService.findOne(id);
         Busket busket=user.getBusket();
 
+
+
+
+
         model.addAttribute("user",user);
         model.addAttribute("busket",busket.getItems());
         return "userBusket";

@@ -9,41 +9,59 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <%--<link href="/CSS/registration.css" rel="stylesheet" >--%>
+    <link href="/CSS/userPage.css" rel="stylesheet" >
+    <link href="/CSS/banner.css" rel="stylesheet" >
+    <link href="/CSS/addProductPage.css" rel="stylesheet" >
     <title>new product page</title>
 </head>
 <body>
-Creating product
+<jsp:include page="header.jsp"/>
 
 
-<%--@elvariable id="newProdcut" type="java"--%>
-<form action="/admin/createNewProduct" method="post" enctype="multipart/form-data">
-    <p>enter prodcut name
-        <input type="text" name="productName" pattern="[a-zA-Z0-9]+" required title="enter product name" placeholder="name"/>
-    </p>
+<div class="first">
+    <div class="registration">
+        <%--@elvariable id="newUser" type="java"--%>
+            <%--@elvariable id="newProdcut" type="java"--%>
+            <form action="/admin/createNewProduct" method="post" enctype="multipart/form-data">
+                <p>Enter product name
+                    <input type="text" name="productName" pattern="[a-zA-Z0-9]+" required title="enter product name" placeholder="name"/>
+                </p>
+                <br>
+                <p>Entet prodcut type
+                    <input type="text" name="productType" pattern="[a-zA-Z0-9]+" required title="enter product type" placeholder="type"/>
+                </p>
+                <br>
+                <p>Add prodcut photo
+                    <input type="file" name="productPhoto"/>
+                </p>
+                <br>
+                <p>Enter procut price
+                    <input type="number" name="productPrice" pattern="[0-9]+" required title="enter product price" placeholder="price"/>
+                </p>
+                <br>
+                <p>Add product description
+                    <input type="text" name="productDescription" pattern="[a-zA-Z0-9]+" required title="enter product description" placeholder="description"/>
+                </p>
+                <br>
+                <input type="submit" value="Create" id="button">
 
-    <p>entet prodcut type
-        <input type="text" name="productType" pattern="[a-zA-Z0-9]+" required title="enter product type" placeholder="type"/>
-    </p>
+                <input type="hidden"
+                       name="${_csrf.parameterName}"
+                       value="${_csrf.token}"/>
 
-    <p>add prodcut photo
-        <input type="file" name="productPhoto"/>
-    </p>
+            </form>
+    </div>
+</div>
 
-    <p>enter procut price
-        <input type="number" name="productPrice" pattern="[0-9]+" required title="enter product price" placeholder="price"/>
-    </p>
 
-    <p>add product description
-        <input type="text" name="productDescription" pattern="[a-zA-Z0-9]+" required title="enter product description" placeholder="description"/>
-    </p>
-    <input type="submit">
+<jsp:include page="footer.jsp"/>
 
-    <input type="hidden"
-           name="${_csrf.parameterName}"
-           value="${_csrf.token}"/>
 
-</form>
-<br>
-<a href="/admin">back to admin page</a>
+
+<div id="toUserPage">
+<a href="/admin">Back</a>
+</div>
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

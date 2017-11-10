@@ -10,37 +10,53 @@
 
 <html>
 <head>
-    <title>Title</title>
+    <link href="/CSS/registration.css" rel="stylesheet" >
+    <link href="/CSS/banner.css" rel="stylesheet" >
+    <title>Registration</title>
 </head>
 <body>
 
+    <div class="wrapper">
+        <jsp:include page="banner.jsp"/>
+<div class="first">
+        <div class="registration">
+        <%--@elvariable id="newUser" type="java"--%>
+        <sf:form action="registration" modelAttribute="newUser" method="post">
+            <p>Enter your name
+                <br>
+                <sf:input path="username"/>
+                <br>
+                <div class="error"><sf:errors path="username"/></div>
+
+            </p>
+            <p>Enter your password
+                <br>
+                <sf:input path="password"/>
+                <br>
+            <div class="error"><sf:errors path="password"/></div>
+            </p>
+
+            <p>Enter your email
+                <br>
+                <sf:input path="email"/>
+                <br>
+               <div class="error"> <sf:errors path="email"/></div>
+            </p>
+            <br>
+
+            <input type="submit" value="Enter" id="button">
+
+            <input type="hidden"
+                   name="${_csrf.parameterName}"
+                   value="${_csrf.token}"/>
+        </sf:form>
+        </div>
+</div>
 
 
-    <%--@elvariable id="newUser" type="java"--%>
-    <sf:form action="registration" modelAttribute="newUser" method="post">
-    <p>enter your name
-    <sf:input path="username"/>
-    <sf:errors path="username"/>
+        <jsp:include page="footer.jsp"/>
 
-    </p>
-    <p>enter your password
-    <sf:input path="password"/>
-    <sf:errors path="password"/>
-    </p>
-
-    <p>enter your email
-    <sf:input path="email"/>
-    <sf:errors path="email"/>
-    </p>
-
-
-    <input type="submit">
-
-    <input type="hidden"
-    name="${_csrf.parameterName}"
-    value="${_csrf.token}"/>
-    </sf:form>
-
+    </div>
 
 
 

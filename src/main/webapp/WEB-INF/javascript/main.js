@@ -25,6 +25,26 @@ var header = $('#csrfHeader').val();
 //     });
 // });
 
+// $('#ban').click(function () {
+//     var attribute= $(this).attr("atribute");
+//     // var user=;
+//     $.ajax({
+//         url:'/admin/listOfUsers/banUser',
+//         type:'GET',
+//         data:JSON.stringify({atr:attribute}),
+//         contentType:'application/json',
+//         success:function (result) {
+//             alert("yes")
+//         },
+//         error:function () {
+//             alert("no")
+//
+//             alert(attribute)
+//         }
+//
+//     })
+// });
+
 $('#setEnable').click(function () {
     var enable=$('select').val();
     let atribute=$(this).attr("atribute");

@@ -1,0 +1,50 @@
+#toUserPage{
+    padding: 3px;
+    width: 90px;
+    border: solid royalblue 2px;
+    background: royalblue;
+    /*margin-top: 15%;*/
+    display:block;
+    clear: both;
+}
+#toUserPage>a{
+    text-decoration: none;
+    color: white;
+
+}
+
+.product{
+    border: royalblue 2px solid;
+    width: 200px;
+    float: left;
+    margin-right: 20px;
+    margin-top: 40px;
+    padding: 10px;
+    text-align: center;
+    line-height: 20px;
+}
+
+
+
+.button{
+    width: 60px;
+    height: 30px;
+    background: royalblue;
+    color: white;
+    border-radius:  5px;
+}
+#quantity{
+    width: 50px;
+}
+
+#delete{
+    margin: 0 auto;
+    border: solid 1px black;
+    width: 50px;
+    background: red;
+    border-radius:  5px;
+    color: black;
+}
+#delete>a{
+    text-decoration: none;
+}

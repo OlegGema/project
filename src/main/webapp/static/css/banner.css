@@ -1,0 +1,31 @@
+.banner{
+    background: royalblue;
+    width: auto;
+    height: 140px;
+    font-size: 120px;
+    color: white;
+    text-align: center;
+}
+
+.footer{
+    background: royalblue;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    font-size: 18px;
+    color: white;
+
+}
+#made{
+    margin-top: 20px;
+    margin-left: 20px;
+    float: left;
+}
+#mail{
+
+    margin-top: 20px;
+    margin-right: 20px;
+    float: right;
+}

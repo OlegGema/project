@@ -9,13 +9,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <jsp:include page="header.jsp"/>
+    <link href="/CSS/userPage.css" rel="stylesheet" >
+    <link href="/CSS/banner.css" rel="stylesheet" >
+    <link href="/CSS/userChangePage.css" rel="stylesheet" >
     <title>Change</title>
 </head>
 <body>
+<jsp:include page="header.jsp"/>
+<div class="first">
+<div class="change">
+    <p>Enter new username</p>
     <form action="changeUserName-${user.id}" method="post" >
         <input type="text" name="username" placeholder="${user.username}">
-        <input type="submit">
+        <br>
+        <input type="submit" class="button" value="change">
         ${massage}
         <input type="hidden"
                name="${_csrf.parameterName}"
@@ -24,26 +31,35 @@
 
 
 
-
+    <p>Enter new email</p>
     <form action="changeEmail-${user.id}" method="post" >
         <input type="text" name="email" placeholder="${user.email}">
-        <input type="submit">
+        <br>
+        <input type="submit" class="button" value="change">
 
         <input type="hidden"
                name="${_csrf.parameterName}"
                value="${_csrf.token}"/>
     </form>
 
+    <p>Chose new avatar</p>
     <form action="changeAvatar-${user.id}" method="post" enctype="multipart/form-data">
         <input type="file" name="avatar" placeholder="avatar">
-        <input type="submit">
+        <br>
+        <input type="submit" class="button" value="change">
 
         <input type="hidden"
                name="${_csrf.parameterName}"
                value="${_csrf.token}"/>
     </form>
+</div>
+</div>
 
-    <a href="userPage">to user page</a>
+<div id="toUserPage">
+    <a href="userPage" >Back</a>
+</div>
+
+<jsp:include page="footer.jsp"/>
 
 </body>
 </html>

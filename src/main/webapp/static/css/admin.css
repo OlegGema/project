@@ -1,0 +1,36 @@
+.first{
+    width: 250px;
+    margin: 0 auto;
+    padding-top: 40px;
+    padding-bottom: 90px;
+
+}
+
+.adm{
+    text-align: center;
+    width: 250px;
+    margin: 40px auto;
+    border: solid 4px royalblue;
+    line-height: 30px;
+    /*padding-bottom: 30px;*/
+    font-size: 18px;
+    font-size: 20px;
+    padding: 20px;
+}
+.adm>a{
+    text-decoration: none;
+}
+
+#toUserPage{
+    padding: 3px;
+    width: 90px;
+    border: solid royalblue 2px;
+    background: royalblue;
+    margin-top: 5%;
+    display:block;
+}
+#toUserPage>a{
+    text-decoration: none;
+    color: white;
+
+}

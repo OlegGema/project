@@ -1,0 +1,44 @@
+
+
+.change{
+    text-align: center;
+    font-size: 22px;
+    border: solid 4px royalblue;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-top: 40px;
+    line-height: 35px;
+}
+.first{
+    width: 350px;
+    margin: 0 auto;
+    padding-top: 40px;
+    padding-bottom: 90px;
+
+}
+
+.button{
+    width: 60px;
+    height: 30px;
+    background: royalblue;
+    color: white;
+    border-radius:  5px;
+}
+input{
+    font-size: 16px;
+    border: royalblue 1px solid;
+    text-align: center;
+}
+#toUserPage{
+    padding: 3px;
+    width: 90px;
+    border: solid royalblue 2px;
+    background: royalblue;
+    margin-top: 5%;
+    display:block;
+}
+#toUserPage>a{
+    text-decoration: none;
+    color: white;
+
+}
