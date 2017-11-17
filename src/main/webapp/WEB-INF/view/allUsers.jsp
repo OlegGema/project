@@ -16,6 +16,7 @@
     <title>List of users</title>
 </head>
 <body>
+<div class="wrapper">
 <jsp:include page="header.jsp"/>
 
     <c:forEach items="${allUsers}" var="user">
@@ -64,5 +65,6 @@
     <script src="/javascript/main.js"></script>
 
 <jsp:include page="footer.jsp"/>
+</div>
 </body>
 </html>

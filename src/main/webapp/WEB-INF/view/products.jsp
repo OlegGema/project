@@ -19,6 +19,8 @@
 
 </head>
 <body>
+
+<div class="wrapper">
 <jsp:include page="header.jsp"/>
 
 
@@ -63,7 +65,7 @@
 </div>
 
 <jsp:include page="footer.jsp"/>
-
+</div>
 <script src="/javascript/main.js"></script>
 </body>
 </html>

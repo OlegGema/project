@@ -16,6 +16,7 @@
     <title>new product page</title>
 </head>
 <body>
+<div class="wrapper">
 <jsp:include page="header.jsp"/>
 
 
@@ -57,7 +58,7 @@
 
 <jsp:include page="footer.jsp"/>
 
-
+</div>
 
 <div id="toUserPage">
 <a href="/admin">Back</a>

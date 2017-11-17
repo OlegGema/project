@@ -14,6 +14,7 @@
     <title>Title</title>
 </head>
 <body>
+<div class="wrapper">
 <jsp:include page="header.jsp"/>
 
 <div class="first">
@@ -32,5 +33,6 @@
 
 
 <jsp:include page="footer.jsp"/>
+</div>
 </body>
 </html>

@@ -15,6 +15,7 @@
     <title>Busket</title>
 </head>
 <body>
+<div class="wrapper">
 <jsp:include page="header.jsp"/>
 
 <%--${item}--%>
@@ -36,5 +37,6 @@
     <a href="/userPage">to user page</a>
 </div>
 <jsp:include page="footer.jsp"/>
+</div>
 </body>
 </html>

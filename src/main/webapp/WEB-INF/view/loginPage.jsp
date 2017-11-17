@@ -21,11 +21,11 @@
         <div class="login">
             <form action="/login" method="post">
                 <p>Enter your name
-                    <input type="text" name="username">
+                    <input type="text" name="username" required title="enter product price">
                 </p>
                 <br>
                 <p>Enter your password
-                    <input type="password" name="password">
+                    <input type="password" name="password" required title="enter product price">
                 </p>
                 <br>
                 <input type="submit" value="Enter" id="button">

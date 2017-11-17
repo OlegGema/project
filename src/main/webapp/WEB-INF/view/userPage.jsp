@@ -15,6 +15,8 @@
     <title>User page</title>
 </head>
 <body>
+
+<div class="wrapper">
 <jsp:include page="header.jsp"/>
 
 <br>
@@ -42,7 +44,7 @@
 </div>
 
 
-</form>
+
 
 
 </body>

@@ -15,6 +15,7 @@
     <title>Change</title>
 </head>
 <body>
+<div class="wrapper">
 <jsp:include page="header.jsp"/>
 <div class="first">
 <div class="change">
@@ -60,6 +61,6 @@
 </div>
 
 <jsp:include page="footer.jsp"/>
-
+</div>
 </body>
 </html>

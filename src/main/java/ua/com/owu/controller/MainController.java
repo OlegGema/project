@@ -24,7 +24,7 @@ public class MainController {
 
 
     @GetMapping("login")
-    public String toLogin(Model model){
+    public String toLogin(){
         return "loginPage";
     }
 
