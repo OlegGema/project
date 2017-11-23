@@ -32,7 +32,7 @@ public class UserController {
         if (result.hasErrors()){
             return "registration";
         }
-//        user.setAvatar("\\avatar\\default.png");
+        user.setAvatar("\\avatar\\default.png");
         user.setBusket(new Busket());
         userService.save(user);
         return "index";

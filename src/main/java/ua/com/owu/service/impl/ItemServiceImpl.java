@@ -41,5 +41,10 @@ public class ItemServiceImpl implements ItemService{
         return dao.items(id);
     }
 
+    @Override
+    public void updateQuantity(int quantity, int id) {
+        dao.updateQuantity(quantity, id);
+    }
+
 
 }

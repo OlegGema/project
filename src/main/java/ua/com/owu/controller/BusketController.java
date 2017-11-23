@@ -14,6 +14,7 @@ import ua.com.owu.service.ProductService;
 import ua.com.owu.service.UserService;
 
 import java.security.Principal;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -33,30 +34,74 @@ public class BusketController {
     @RequestMapping(value = "/userPage/add-{id}" ,method = RequestMethod.POST)
     public String  addProduct(@PathVariable("id")int id, @RequestParam("quantity")int quantity, Principal principal){
 
+//        User user = userService.findByName(principal.getName());
+//        Busket busket = user.getBusket();
+//        Product product = productService.findOne(id);
+//        System.out.println(product);
+//        System.out.println(busket);
+//
+//
+//        Item newItem=new Item();
+//        newItem.setProduct(product);
+//        newItem.setQuantity(quantity);
+//
+//    itemService.save(newItem);
+//    busket.getItems().add(newItem);
+//    busketService.add(busket);
+
         User user = userService.findByName(principal.getName());
         Busket busket = user.getBusket();
         Product product = productService.findOne(id);
-        System.out.println(product);
-        System.out.println(busket);
+
+        List<Item> items = busket.getItems();
+        Iterator<Item> iterator = items.iterator();
+
+        if (items.isEmpty()){
+            System.out.println("first if");
+            Item newItem=new Item();
+            newItem.setProduct(product);
+            newItem.setQuantity(quantity);
+            itemService.save(newItem);
+            busket.getItems().add(newItem);
+            busketService.add(busket);
+        }else {
+
+            while (iterator.hasNext()) {
+                Item currentItem = iterator.next();
+                if ((currentItem.getProduct().getId() == id)&&currentItem.getBusket().getId()==(user.getBusket().getId())) {
+
+                    System.out.println("second if");
+                    System.out.println("id of current item "+currentItem.getProduct().getId());
+                    System.out.println("id of product "+id);
+                    System.out.println(currentItem.getQuantity());
+//                    currentItem.setQuantity(currentItem.getQuantity() + quantity);
+                    itemService.updateQuantity(currentItem.getQuantity() + quantity, currentItem.getItemId());
+                    busket.getItems();
+                    
 
 
-        Item newItem=new Item();
-        newItem.setProduct(product);
-        newItem.setQuantity(quantity);
+                } else{
+                    //чьот не то
+                    System.out.println("third if");
+                    Item newItem=new Item();
+                    newItem.setProduct(product);
+                    newItem.setQuantity(quantity);
+                    itemService.save(newItem);
+                    busket.getItems().add(newItem);
+                    busketService.add(busket);
 
-    itemService.save(newItem);
-    busket.getItems().add(newItem);
-    busketService.add(busket);
 
+                }
+            }
 
-
+        }
 
 
         return "redirect:/userPage/products";
     }
 
     @GetMapping("/userPage/userBusket-{id}")
-    public String userBusket(@PathVariable("id")int id,Model model,Principal principal){
+    public String userBusket(@PathVariable("id")int id,Model model){
         User user = userService.findOne(id);
         Busket busket=user.getBusket();
 
