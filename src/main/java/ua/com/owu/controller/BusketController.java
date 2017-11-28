@@ -34,20 +34,7 @@ public class BusketController {
     @RequestMapping(value = "/userPage/add-{id}" ,method = RequestMethod.POST)
     public String  addProduct(@PathVariable("id")int id, @RequestParam("quantity")int quantity, Principal principal){
 
-//        User user = userService.findByName(principal.getName());
-//        Busket busket = user.getBusket();
-//        Product product = productService.findOne(id);
-//        System.out.println(product);
-//        System.out.println(busket);
-//
-//
-//        Item newItem=new Item();
-//        newItem.setProduct(product);
-//        newItem.setQuantity(quantity);
-//
-//    itemService.save(newItem);
-//    busket.getItems().add(newItem);
-//    busketService.add(busket);
+
 
         User user = userService.findByName(principal.getName());
         Busket busket = user.getBusket();
@@ -55,6 +42,8 @@ public class BusketController {
 
         List<Item> items = busket.getItems();
         Iterator<Item> iterator = items.iterator();
+
+        int numberOfItem=0;
 
         if (items.isEmpty()){
             System.out.println("first if");
@@ -68,30 +57,27 @@ public class BusketController {
 
             while (iterator.hasNext()) {
                 Item currentItem = iterator.next();
-                if ((currentItem.getProduct().getId() == id)&&currentItem.getBusket().getId()==(user.getBusket().getId())) {
-
+                if (currentItem.getProduct().getId()==id) {
                     System.out.println("second if");
                     System.out.println("id of current item "+currentItem.getProduct().getId());
                     System.out.println("id of product "+id);
                     System.out.println(currentItem.getQuantity());
-//                    currentItem.setQuantity(currentItem.getQuantity() + quantity);
-                    itemService.updateQuantity(currentItem.getQuantity() + quantity, currentItem.getItemId());
-                    busket.getItems();
-                    
+//
+                    numberOfItem=currentItem.getItemId();
 
-
-                } else{
-                    //чьот не то
-                    System.out.println("third if");
-                    Item newItem=new Item();
-                    newItem.setProduct(product);
-                    newItem.setQuantity(quantity);
-                    itemService.save(newItem);
-                    busket.getItems().add(newItem);
-                    busketService.add(busket);
 
 
                 }
+            }
+            if (numberOfItem!=0){
+                itemService.updateQuantity(itemService.findOne(numberOfItem).getQuantity()+quantity, numberOfItem);
+            }else {
+                Item newItem=new Item();
+                newItem.setProduct(product);
+                newItem.setQuantity(quantity);
+                itemService.save(newItem);
+                busket.getItems().add(newItem);
+                busketService.add(busket);
             }
 
         }
