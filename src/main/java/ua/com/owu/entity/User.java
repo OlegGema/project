@@ -24,7 +24,7 @@ public class User implements UserDetails {
     private String password;
 
     private String email;
-    private String avatar;
+    private String avatar="\\avatar\\default.png";
     @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private Busket busket;

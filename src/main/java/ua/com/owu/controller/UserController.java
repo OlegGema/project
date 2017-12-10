@@ -82,7 +82,7 @@ public class UserController {
     @RequestMapping(value = "changeAvatar-{id}",method = RequestMethod.POST)
     public String newAvatar(@PathVariable("id")int id, @RequestParam("avatar")MultipartFile multipartFile, Model model) throws IOException {
         User user = userService.findOne(id);
-        String path=System.getProperty("user.home")+ File.separator+"images\\";
+        String path="D:\\java\\Maven\\Project\\src\\main\\webapp\\static\\avatars\\";
         multipartFile.transferTo(new File(path+multipartFile.getOriginalFilename()));
         String photo="\\avatar\\"+multipartFile.getOriginalFilename();
         userService.setNewAvatar(photo,id);

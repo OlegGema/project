@@ -40,7 +40,7 @@ public class ProductController {
                              @RequestParam("productPrice")int productPrice,
                              @RequestParam("productDescription")String productDescription)throws IOException{
 
-        String path=System.getProperty("user.home") + File.separator+"productImages\\";
+        String path="D:\\java\\Maven\\Project\\src\\main\\webapp\\static\\productImages\\";
         multipartFile.transferTo(new File(path+multipartFile.getOriginalFilename()));
 
 
@@ -94,7 +94,7 @@ public class ProductController {
         productService.save(product);
         return "redirect:/admin/products/product-{id}";
     }
-/////переписпти мепынги
+
     @RequestMapping(value = "/admin/changeProdType-{id}" ,method = RequestMethod.POST)
     public String changeProdType(@PathVariable("id")int id,@RequestParam("productType")String type){
         Product product=productService.findOne(id);
@@ -114,7 +114,7 @@ public class ProductController {
     @RequestMapping(value = "/admin/changeProdPhoto-{id}",method = RequestMethod.POST)
     public String changeProdPhoto(@PathVariable("id")int id,@RequestParam("productPhoto") MultipartFile multipartFile) throws IOException {
         Product product=productService.findOne(id);
-        String path=System.getProperty("user.home")+File.separator+"productImages\\";
+        String path="D:\\java\\Maven\\Project\\src\\main\\webapp\\static\\productImages\\";
         multipartFile.transferTo(new File(path+multipartFile.getOriginalFilename()));
         String photo="\\productPhoto\\"+multipartFile.getOriginalFilename();
         product.setProductPhoto(photo);

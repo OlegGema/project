@@ -7,9 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
 import ua.com.owu.dao.UserDAO;
-import ua.com.owu.entity.Product;
 import ua.com.owu.entity.User;
 import ua.com.owu.service.UserService;
 
